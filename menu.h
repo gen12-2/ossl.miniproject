@@ -3,23 +3,26 @@
 // 		음식점 별 메뉴 출력
 // 		메뉴 삭제
 // 		메뉴 추가
-
-#include <stdio.h>
-#include <string>
+#ifndef MENU_H
+#define MENU_H
 
 typedef struct {
     char foodname[100];
-    int day;//일요일 0, 월요일 1, 화요일 2, 수요일 3, 목요일 4, 금요일 5, 토요일 6
+    int day; // 일요일 0, 월요일 1, 화요일 2, 수요일 3, 목요일 4, 금요일 5, 토요일 6
     char restaurant[100];
     int price;
 } Menu;
 
-void readfile(char filename[100], Menu *p[]);//파일 읽기
+int readfile(char filename[100], Menu *p[]); // 파일 읽기
 
-void printRestaurantMenu(char restaurant[100], Menu *p[], int count);//음식점별 메뉴 출력
+void printRestaurantMenu(char restaurant[100], Menu *p[], int count); // 음식점별 메뉴 출력
 
-void printDayMenu(int Day, Menu *p[], int count);//요일별 메뉴 출력
+void printDayMenu(int day, Menu *p[], int count); // 요일별 메뉴 출력
 
-void deleteMenu(Menu *p[], char foodname[100]);//메뉴 삭제
+void deleteMenu(Menu *p); // 메뉴 삭제
 
-void deleteMenu(char foodname[100]);//메뉴 추가
+void add(Menu *p); // 메뉴 추가
+
+int selectMenu();
+
+#endif
